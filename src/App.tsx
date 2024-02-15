@@ -1,8 +1,9 @@
 import React from 'react'
 import './App.css'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import Typography from '@mui/material/Typography'
 import { CssBaseline } from '@mui/material'
+import { MainLayout } from './layout'
+import { DashboardPage } from './pages'
 
 const darkTheme = createTheme({
   palette: {
@@ -14,11 +15,9 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <div className="App">
-        <header className="App-header">
-          <Typography variant="h2">Transmax Dashboard</Typography>
-        </header>
-      </div>
+      <MainLayout>
+        <DashboardPage />
+      </MainLayout>
     </ThemeProvider>
   )
 }
