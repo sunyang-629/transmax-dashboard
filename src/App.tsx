@@ -1,13 +1,24 @@
 import React from 'react'
 import './App.css'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
+import { MainLayout } from './layout'
+import { DashboardPage } from './pages'
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Transmax Dashboard</h1>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <MainLayout>
+        <DashboardPage />
+      </MainLayout>
+    </ThemeProvider>
   )
 }
 
