@@ -18,7 +18,7 @@ export type Weather = {
 }
 
 export enum WeatherMain {
-  Clear = 1,
+  Clear,
   Cloud,
   Rain,
   Snow,
