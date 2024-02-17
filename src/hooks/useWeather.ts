@@ -1,26 +1,22 @@
 import { useState } from 'react'
-import { getMockWeather } from '../utils'
-import { Weather, WeatherMain } from '../types'
+//UI
 import WbSunnyIcon from '@mui/icons-material/WbSunny'
 import CloudQueueIcon from '@mui/icons-material/CloudQueue'
 import ThunderstormIcon from '@mui/icons-material/Thunderstorm'
 import AcUnitIcon from '@mui/icons-material/AcUnit'
+//utils
+import { getMockWeather, getIconIndex } from '../utils'
+//typs
+import { Weather } from '../types'
 
 const useWeather = () => {
   const [weather] = useState<Weather>(() => getMockWeather())
   const weatherIconList = [WbSunnyIcon, CloudQueueIcon, ThunderstormIcon, AcUnitIcon]
 
-  let iconIndex = 0
-  if (
-    Object.values(WeatherMain)
-      .filter((value) => typeof value === 'string')
-      .includes(weather.weather.main)
-  ) {
-    iconIndex = WeatherMain[weather.weather.main]
-  }
-  const weatherIcon = weatherIconList[iconIndex]
+  const weatherIcon = weatherIconList[getIconIndex(weather.weather.main)]
+  const forecastIcon = weatherIconList[getIconIndex(weather.forecast.main)]
 
-  return { weather, weatherIcon }
+  return { weather, weatherIcon, forecastIcon }
 }
 
 export default useWeather

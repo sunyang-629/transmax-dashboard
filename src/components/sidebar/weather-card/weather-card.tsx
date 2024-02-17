@@ -1,15 +1,18 @@
 import React from 'react'
+//UI
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import useWeather from '../../../hooks/useWeather'
 import { Grid, SvgIcon } from '@mui/material'
+//hooks
+import useWeather from '../../../hooks/useWeather'
+//utils
 import { getWeatherTime } from '../../../utils'
-// import { WeatherMain } from '../../../types'
-// import { AcUnitIcon } from '../../../utils/weather'
+//types
+import WeatherItem from './weather-item'
 
 const WeatherCard = () => {
-  const { weather, weatherIcon } = useWeather()
+  const { weather, weatherIcon, forecastIcon } = useWeather()
 
   return (
     <Card sx={{ backgroundImage: 'none', boxShadow: 'none' }} variant="outlined">
@@ -29,8 +32,16 @@ const WeatherCard = () => {
           <Grid item xs={6}>
             <SvgIcon component={weatherIcon} sx={{ width: '100%', height: '100%' }} />
           </Grid>
-          <Grid item xs={12} sx={{ border: '1px solid #828282' }}>
-            <Typography variant="h5">{weather.forecast.temp}</Typography>
+          <Grid item xs={12} padding="5px">
+            <WeatherItem title="Humidity">{weather.main.humidity}%</WeatherItem>
+            <WeatherItem title="Change of Rain">{weather.main.pop}%</WeatherItem>
+            <WeatherItem title="Wind" unit="kmh">
+              {weather.wind.speed}
+            </WeatherItem>
+            <WeatherItem title="Tomorrow">
+              {weather.forecast.temp}&deg;
+              <SvgIcon component={forecastIcon} sx={{ height: '0.9rem' }} />
+            </WeatherItem>
           </Grid>
         </Grid>
       </CardContent>
