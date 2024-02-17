@@ -22,7 +22,11 @@ const DelayedRoutesItem: FC<DelayedRoutesItemProps> = ({ route }) => {
       <Stack flexDirection="row" justifyContent="space-between">
         <Stack flexDirection="row" alignItems="center">
           <CircleIcon
-            sx={{ fontSize: '0.7rem', width: '1.5rem', color: DOT_COLOR_LIST[route.alert_level] }}
+            sx={{
+              fontSize: '0.7rem',
+              width: '1.5rem',
+              color: DOT_COLOR_LIST[route.alert_level],
+            }}
           />
           <Typography variant="body1" color={'text.secondary'}>
             {route.road.name}
