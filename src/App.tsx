@@ -9,6 +9,19 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
+  components: {
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          borderBottom: `1px solid ${theme.palette.divider}`,
+          minHeight: '40px',
+          '&.Mui-expanded': {
+            minHeight: '40px',
+          },
+        }),
+      },
+    },
+  },
 })
 
 function App() {
