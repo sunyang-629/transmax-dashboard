@@ -15,7 +15,7 @@ const WeatherCard = () => {
   const { weather, weatherIcon, forecastIcon } = useWeather()
 
   return (
-    <Card sx={{ backgroundImage: 'none', boxShadow: 'none' }} variant="outlined">
+    <Card sx={{ backgroundImage: 'none', boxShadow: 'none' }}>
       <CardContent sx={{ paddingTop: 0 }}>
         <Grid container justifyContent="center" alignItems="center">
           <Grid item xs={6} textAlign="center">
