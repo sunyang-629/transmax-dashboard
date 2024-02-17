@@ -25,11 +25,11 @@ const SidebarAccordion: FC<SidebarAccordionProps> = ({ title, children }) => {
         expandIcon={<ExpandMoreIcon sx={{ fontSize: '1.8rem', color: 'text.disabled' }} />}
         aria-controls={`panel-${title}-content`}
         id={`panel-${title}-header`}
-        sx={{ height: '40px' }}
+        sx={{ height: '40px', paddingRight: '6px' }}
       >
         <Typography fontWeight={500}>{title}</Typography>
       </AccordionSummary>
-      <AccordionDetails>{children}</AccordionDetails>
+      <AccordionDetails sx={{ padding: '2px 0px 6px 0px' }}>{children}</AccordionDetails>
     </Accordion>
   )
 }
