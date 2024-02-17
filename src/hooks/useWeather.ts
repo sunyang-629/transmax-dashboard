@@ -7,7 +7,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit'
 //utils
 import { getMockWeather, getIconIndex } from '../utils'
 //typs
-import { Weather } from '../types'
+import type { Weather } from '../types'
 
 const useWeather = () => {
   const [weather] = useState<Weather>(() => getMockWeather())

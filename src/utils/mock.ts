@@ -1,4 +1,4 @@
-import { Weather } from '../types'
+import type { Weather, Route } from '../types'
 
 export const getMockWeather = (): Weather => ({
   weather: {
@@ -18,3 +18,16 @@ export const getMockWeather = (): Weather => ({
   },
   name: 'Brisbane',
 })
+
+export const getMockDelayRoutes = (): Route[] => [
+  {
+    road: {
+      name: 'Monash Fwy Out',
+      from: 'Kings Ways',
+      to: 'EastLink',
+    },
+    alert_level: 4,
+    distance: 13,
+    duration: 45,
+  },
+]
