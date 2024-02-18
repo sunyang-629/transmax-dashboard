@@ -15,25 +15,42 @@ const WeatherCard = () => {
   const { weather, weatherIcon, forecastIcon } = useWeather()
 
   return (
-    <Card sx={{ backgroundImage: 'none', boxShadow: 'none' }}>
+    <Card data-testid="weather-card-container" sx={{ backgroundImage: 'none', boxShadow: 'none' }}>
       <CardContent sx={{ paddingTop: 0 }}>
         <Grid container justifyContent="center" alignItems="center">
           <Grid item xs={6} textAlign="center">
-            <Typography variant="body1" color={'text.secondary'} lineHeight={1}>
+            <Typography
+              data-testid="city-name"
+              variant="body1"
+              color={'text.secondary'}
+              lineHeight={1}
+            >
               {weather.name}
             </Typography>
-            <Typography variant="h3" lineHeight={1}>
+            <Typography variant="h3" lineHeight={1} data-testid="weather-temp">
               {weather.main.temp}&deg;
             </Typography>
-            <Typography variant="body2" color={'text.secondary'} lineHeight={1} fontSize="0.75rem">
+            <Typography
+              variant="body2"
+              color={'text.secondary'}
+              lineHeight={1}
+              fontSize="0.75rem"
+              data-testid="current-time"
+            >
               {getWeatherTime()}
             </Typography>
           </Grid>
           <Grid item xs={6}>
-            <SvgIcon component={weatherIcon} sx={{ width: '100%', height: '100%' }} />
+            <SvgIcon
+              data-testid="weather-icon"
+              component={weatherIcon}
+              sx={{ width: '100%', height: '100%' }}
+            />
           </Grid>
           <Grid item xs={12} padding="5px">
-            <WeatherItem title="Humidity">{weather.main.humidity}%</WeatherItem>
+            <WeatherItem data-testid="weather-humidity" title="Humidity">
+              {weather.main.humidity}%
+            </WeatherItem>
             <WeatherItem title="Change of Rain">{weather.main.pop}%</WeatherItem>
             <WeatherItem title="Wind" unit="kmh">
               {weather.wind.speed}
