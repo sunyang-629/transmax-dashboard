@@ -59,3 +59,11 @@ This will start the development server, and you can view the app at http://local
 ```js
 npm run test
 ```
+
+6. Run Docker
+
+```js
+docker-compose up -d
+```
+
+Run the docker-compose command to start the services in the root dir of the project. and you can view the app at http://localhost:8080 in your browser.
