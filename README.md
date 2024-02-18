@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Front End Developer Code Challenge - Transmax Dashboard Sidebar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+The practical exercise involves developing a sidebar for a situational awareness dashboard using React and Typescript. The sidebar will display various widgets such as weather, delayed routes, and a ramp chart, which will be populated using an API. The ramp chart will update dynamically as new data is received, requiring a performant and visually appealing implementation. Additionally, a non-trivial unit test for one of the sidebar components is required to demonstrate testing proficiency.
 
-In the project directory, you can run:
+## Project Structure
 
-### `npm start`
+- `src/index.tsx`: The entry point for this React application.
+- `src/App.tsx`: Main application component.
+- `src/pages`: Contains all pages functional compoents for building the user interface.
+- `src/components`: Contains all children components for building the user interface.
+- `src/hooks`: Stores all custom hooks that encapsulate reusable logic.
+- `src/types`: Stroes TypeScript interfaces or enums that represent the data models
+- `src/utils`: Houses utility functions for data manipulation.
+- `src/constants`: Stores constant values, configurations that are used throughout the application.
+- `src/__tests__`: Contains all the test files.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Main Packages:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- `dayjs`: Often used in projects for handling and manipulating dates.
+- `jest`: A popular JavaScript testing framework that is often used in React projects.
+- `Material UI`: A popular open-source library that provides a set of pre-built React components for building user interfaces with a Material Design look and feel.
+- `lodash`: A popular JavaScript utility library that provides a wide range of functions for simplifying and optimizing common programming tasks.
+- `AG Charts`: A powerful and feature-rich JavaScript charting library developed by ag-Grid, known for its high-performance data grid component.
 
-### `npm test`
+## Getting Started:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow these steps to set up and run the project locally:
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+git clone https://github.com/sunyang-629/transmax-dashboard.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate to the project directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+cd transmax
+```
 
-### `npm run eject`
+3. Install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```js
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Run the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```js
+npm run start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This will start the development server, and you can view the app at http://localhost:3000 in your browser.
 
-## Learn More
+5. Run Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+npm run test
+```
