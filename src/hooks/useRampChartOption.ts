@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, useTransition } from 'react'
 //packages
 import { AgChartOptions } from 'ag-charts-community'
 import { teal } from '@mui/material/colors'
@@ -13,6 +13,7 @@ import { getRampAlgorithms } from '../api'
 
 const useRampChartOption = () => {
   const [rampList, setRampList] = useState<Ramp[]>([])
+  const [, startTransition] = useTransition()
 
   const options = useMemo<AgChartOptions>(() => {
     const groupedRampList = groupby(rampList, 'algorithm')
@@ -62,7 +63,7 @@ const useRampChartOption = () => {
   }, [rampList])
 
   const handleUpdate = (ramps: Ramp[]) => {
-    setRampList(ramps)
+    startTransition(() => setRampList(ramps))
   }
 
   useEffect(() => {

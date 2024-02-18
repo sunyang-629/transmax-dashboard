@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { Suspense, memo } from 'react'
 import { SidebarAccordion } from '../../accordions'
 import { AgChartsReact } from 'ag-charts-react'
 import { useRampChartOption } from '../../../hooks'
@@ -9,13 +9,14 @@ const RampChartCard = () => {
 
   return (
     <SidebarAccordion title="RAMP CHART">
-      <Chart options={options} />
+      <Suspense fallback={<div>loading...</div>}>
+        <Chart options={options} />
+      </Suspense>
     </SidebarAccordion>
   )
 }
 
 const Chart = memo(function Chart({ options }: { options: AgChartOptions }) {
-  console.log('render')
   return <AgChartsReact options={options} />
 })
 
