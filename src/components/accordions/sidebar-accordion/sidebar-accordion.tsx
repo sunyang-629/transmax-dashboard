@@ -18,6 +18,9 @@ const SidebarAccordion: FC<SidebarAccordionProps> = ({ title, children }) => {
         borderRadius: '4px',
         backgroundColor: BLUE_GREY,
         color: 'text.disabled',
+        '&.Mui-expanded': {
+          marginBottom: 0,
+        },
       }}
       variant="outlined"
     >

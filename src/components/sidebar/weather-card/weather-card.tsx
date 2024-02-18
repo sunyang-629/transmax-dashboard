@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import { Grid, SvgIcon } from '@mui/material'
 //hooks
-import useWeather from '../../../hooks/useWeather'
+import { useWeather } from '../../../hooks'
 //utils
 import { getWeatherTime } from '../../../utils'
 //types
