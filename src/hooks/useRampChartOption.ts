@@ -17,13 +17,12 @@ const useRampChartOption = () => {
 
   const options = useMemo<AgChartOptions>(() => {
     const groupedRampList = groupby(rampList, 'algorithm')
-    const newOptionData: { asset: string; amount: number }[] = []
-    RAMP_ALGORITHM_ARRAY.map((al) => {
-      return newOptionData.push({
-        asset: al,
-        amount: round((groupedRampList[al]?.length ?? 0) / rampList.length, 2),
-      })
-    })
+
+    const newOptionData = RAMP_ALGORITHM_ARRAY.map((al) => ({
+      assert: al,
+      amount: round((groupedRampList[al]?.length ?? 0) / rampList.length, 2),
+    }))
+
     return {
       data: rampList.length === 0 ? [] : newOptionData,
       series: [
