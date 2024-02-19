@@ -4,4 +4,4 @@ export const RAMP_ALGORITHM_ARRAY = [
   'Algorithm 3',
   'Algorithm 4',
   'Algorithm 5',
-]
+] as const
