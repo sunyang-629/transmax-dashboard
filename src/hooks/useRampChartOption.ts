@@ -3,13 +3,13 @@ import { useEffect, useMemo, useState, useTransition } from 'react'
 import { AgChartOptions } from 'ag-charts-community'
 import { teal } from '@mui/material/colors'
 import groupby from 'lodash/groupBy'
-import round from 'lodash/round'
 //types
 import { Ramp } from '../types'
 //constants
 import { BLUE_GREY, PIE_CHART_COLOR_LIST, RAMP_ALGORITHM_ARRAY } from '../constants'
 //api
 import { getRampAlgorithms } from '../api'
+import { getPercentageString } from '../utils'
 
 const useRampChartOption = () => {
   const [rampList, setRampList] = useState<Ramp[]>([])
@@ -19,8 +19,9 @@ const useRampChartOption = () => {
     const groupedRampList = groupby(rampList, 'algorithm')
 
     const newOptionData = RAMP_ALGORITHM_ARRAY.map((al) => ({
-      assert: al,
-      amount: round((groupedRampList[al]?.length ?? 0) / rampList.length, 2),
+      asset: al,
+      percentage: getPercentageString(groupedRampList[al].length, rampList.length),
+      amount: groupedRampList[al].length,
     }))
 
     return {
@@ -35,7 +36,7 @@ const useRampChartOption = () => {
           calloutLabel: {
             offset: 5,
             formatter(params) {
-              return `${Math.round(params.datum.amount * 100)}%`
+              return `${params.datum.percentage}`
             },
             fontFamily: 'Roboto',
             fontSize: 14,
