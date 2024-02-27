@@ -20,8 +20,8 @@ const useRampChartOption = () => {
 
     const newOptionData = RAMP_ALGORITHM_ARRAY.map((al) => ({
       asset: al,
-      percentage: getPercentageString(groupedRampList[al].length, rampList.length),
-      amount: groupedRampList[al].length,
+      percentage: getPercentageString(groupedRampList[al]?.length, rampList.length),
+      amount: groupedRampList[al]?.length || 0,
     }))
 
     return {
