@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useTransition } from 'react'
+import { useEffect, useMemo, useRef, useState, useTransition } from 'react'
 //packages
 import { AgChartOptions } from 'ag-charts-community'
 import { teal } from '@mui/material/colors'
@@ -66,9 +66,13 @@ const useRampChartOption = () => {
     startTransition(() => setRampList(ramps))
   }
 
+  const timeRef = useRef<NodeJS.Timer | null>(null)
+
   useEffect(() => {
-    const id = getRampAlgorithms(handleUpdate)
-    return () => clearInterval(id)
+    timeRef.current = getRampAlgorithms(handleUpdate)
+    return () => {
+      if (timeRef.current) clearInterval(timeRef.current)
+    }
   })
 
   return { options }
